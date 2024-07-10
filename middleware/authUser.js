@@ -7,7 +7,7 @@ const validateToken = async (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     // Create a JWKS client to fetch keys from your JWKS endpoint
     const client = jwksClient({
-        jwksUri: 'https://magical-dory-40.clerk.accounts.dev/.well-known/jwks.json' // Replace with your JWKS endpoint
+        jwksUri: process.env.JWKS_KEY_URL
     });
 
     // Function to retrieve a signing key based on the JWT's header
